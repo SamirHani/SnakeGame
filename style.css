@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+html {
+  --border-width: 20px;
+  --gridSize: 20;
+  --gridWidth: 20px;
+}
+body {
+  background-color: #1e1e1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'VT323', monospace;
+}
+.scores {
+  display: flex;
+  width: calc((var(--gridSize) * var(--gridWidth)) + var(--border-width) * 2);
+  justify-content: space-between;
+  align-items: center;
+}
+#score {
+  color: green;
+}
+#highScore {
+  color: gold;
+}
+#lastGame {
+  color: red;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(var(--gridSize), var(--gridWidth));
+  grid-template-rows: repeat(var(--gridSize), var(--gridWidth));
+  border: var(--border-width) solid rgb(112, 112, 196);
+  background-color: #303443;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+@media (max-width: 500px), (min-width: 400) {
+  html {
+    --gridWidth: 15px;
+  }
+}
+
+#instructions {
+  text-transform: capitalize;
+  position: absolute;
+  color: gray;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+@media (max-width: 399px) {
+  html {
+    --gridWidth: 12px;
+  }
+  #instructions {
+    font-size: 19px;
+  }
+}
+
+.snake {
+  background-color: #222222;
+  border: 1px dotted #5a5a5a;
+  border-radius: 2px;
+}
+
+.food {
+  background-color: #dedede;
+  border: 1px solid #999;
+  border-radius: 9px;
+}
